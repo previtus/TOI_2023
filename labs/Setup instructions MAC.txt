@@ -1,0 +1,24 @@
+[INSTRUCTIONS]
+
+# find if we need arm64 or x86_64 – this will influence which miniforge version we download
+uname -a
+
+curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+sh Miniforge3-MacOSX-arm64.sh
+ - accept the licence
+ - accept the default location
+ - say yes when asked to run conda init
+exec /bin/bash -l
+
+conda create -n toi python==3.9
+
+conda activate toi
+
+conda install wxPython matplotlib scipy numpy scikit-learn jupyter statsmodels pandas
+
+# Then open the lab notebooks:
+
+git clone https://github.com/previtus/TOI_2023.git
+cd TOI_2023/labs
+
+jupyter notebook
